@@ -1,0 +1,8 @@
+product-list:
+  handler: src/handlers/product/handler.listProducts
+  events:
+    - http:
+        path: products
+        method: get
+  layers:
+    - { Ref: UtilsLambdaLayer }

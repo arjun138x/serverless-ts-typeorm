@@ -1,0 +1,27 @@
+{
+  "name": "serverless-ts-typeorm",
+  "version": "1.0.0",
+  "description": "Serverless AWS Lambda project with TypeScript and TypeORM - multi schema + layers (example)",
+  "main": "dist/handler.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "npx serverless offline",
+    "deploy": "sls deploy",
+    "clean": "rm -rf dist node_modules .serverless"
+  },
+  "dependencies": {
+    "pg": "^8.11.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.3.17"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.92",
+    "esbuild": "^0.19.0",
+    "serverless": "^3.30.0",
+    "serverless-dotenv-plugin": "^6.0.0",
+    "serverless-esbuild": "^1.21.0",
+    "serverless-offline": "^14.4.0",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.4.2"
+  }
+}

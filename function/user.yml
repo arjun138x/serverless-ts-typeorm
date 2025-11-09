@@ -1,0 +1,9 @@
+user-get:
+  handler: src/handlers/user/handler.getUser
+  events:
+    - http:
+        path: users/{id}
+        method: get
+  layers:
+    - { Ref: DbLambdaLayer }
+    - { Ref: UtilsLambdaLayer }

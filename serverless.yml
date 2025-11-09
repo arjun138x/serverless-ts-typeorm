@@ -1,0 +1,73 @@
+service: serverless-ts-typeorm
+
+frameworkVersion: "3"
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-esbuild
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: ap-south-1
+  stage: dev
+  environment:
+    NODE_ENV: ${opt:stage, 'dev'}
+    DB_HOST: ${env:DB_HOST, 'localhost'}
+    DB_USER: ${env:DB_USER, 'postgres'}
+    DB_PASS: ${env:DB_PASS, 'root'}
+    DB1_NAME: ${env:DB1_NAME, 'test'}
+    DB2_NAME: ${env:DB2_NAME, 'test'}
+
+functions:
+  - ${file(function/user.yml)}
+  - ${file(function/order.yml)}
+  - ${file(function/product.yml)}
+
+package:
+  individually: true
+
+layers:
+  db:
+    path: layers/db
+  utils:
+    path: layers/utils
+
+custom:
+  esbuild:
+    bundle: true
+    minify: false
+    sourcemap: true
+    target: node20
+    platform: node
+    exclude: ["aws-sdk"]
+# functions:
+#   user-get:
+#     handler: src/handlers/user/handler.getUser
+#     events:
+#       - http:
+#           path: users/{id}
+#           method: get
+#     layers:
+#       - { Ref: DbLambdaLayer }
+#       - { Ref: UtilsLambdaLayer }
+
+#   order-get:
+#     handler: src/handlers/order/handler.getOrder
+#     events:
+#       - http:
+#           path: orders/{id}
+#           method: get
+#     layers:
+#       - { Ref: DbLambdaLayer }
+#       - { Ref: UtilsLambdaLayer }
+
+#   product-list:
+#     handler: src/handlers/product/handler.listProducts
+#     events:
+#       - http:
+#           path: products
+#           method: get
+#     layers:
+#       - { Ref: UtilsLambdaLayer }

@@ -1,0 +1,9 @@
+order-get:
+  handler: src/handlers/order/handler.getOrder
+  events:
+    - http:
+        path: orders/{id}
+        method: get
+  layers:
+    - { Ref: DbLambdaLayer }
+    - { Ref: UtilsLambdaLayer }
