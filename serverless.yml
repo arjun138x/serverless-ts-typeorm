@@ -31,8 +31,14 @@ package:
 layers:
   db:
     path: layers/db
+  entities:
+    path: layers/entities
   utils:
     path: layers/utils
+  shared:
+    path: layers/shared
+  types:
+    path: layers/types
 
 custom:
   esbuild:

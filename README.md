@@ -49,57 +49,49 @@ This is a starter project demonstrating:
 ## 📂 Project Folder Structure
 
 ```
-serverless-aws-ts-typeorm/
-│
-├── src/
-│   ├── handlers/
-│   │   ├── user/
-│   │   │   ├── handler.ts
-│   │   │   └── user.service.ts
-│   │   ├── order/
-│   │   │   ├── handler.ts
-│   │   │   └── order.service.ts
-│   │   └── common/
-│   │       └── response.ts
-│   │
-│   ├── entities/
-│   │   ├── schema1/
-│   │   │   └── User.ts
-│   │   └── schema2/
-│   │       └── Order.ts
-│   │
-│   ├── layers/
-│   │   ├── db/
-│   │   │   ├── connection.ts
-│   │   │   └── ormconfig.ts
-│   │   ├── utils/
-│   │   │   ├── logger.ts
-│   │   │   └── responseHandler.ts
-│   │   └── types/
-│   │       └── index.ts
-│   │
-│   └── shared/
-│       ├── constants.ts
-│       ├── errors.ts
-│       └── validations.ts
+serverless-ts-typeorm/
 │
 ├── layers/
 │   ├── db/
 │   │   └── nodejs/
-│   │       └── src/ (copied from src/layers/db/)
-│   └── utils/
+│   │       └── src/
+│   │           └── connection.ts
+│   │
+│   ├── entities/
+│   │   └── nodejs/
+│   │       └── src/
+│   │           ├── schema1/
+│   │           │   └── User.ts
+│   │           └── schema2/
+│   │               └── Order.ts
+│   │
+│   ├── utils/
+│   │   └── nodejs/
+│   │       └── src/
+│   │           └── responseHandler.ts
+│   │
+│   ├── shared/
+│   │   └── nodejs/
+│   │       └── src/
+│   │           ├── constants.ts
+│   │           └── errors.ts
+│   │
+│   └── types/
 │       └── nodejs/
-│           └── src/ (copied from src/layers/utils/)
+│           └── src/
+│               └── index.ts
 │
-├── function/
-│   ├── user.yml
-│   └── order.yml
+├── src/
+│   ├── handlers/
+│   │   ├── user/handler.ts
+│   │   ├── order/handler.ts
+│   │   └── product/handler.ts
 │
 ├── serverless.yml
-├── package.json
 ├── tsconfig.json
-├── .env
-└── README.md
+├── package.json
+└── .env
+
 ```
 
 ---

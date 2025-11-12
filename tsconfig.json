@@ -4,7 +4,7 @@
     "module": "commonjs",
     "lib": ["ES2020"],
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir": ".",
     "strict": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
@@ -15,13 +15,12 @@
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
-      // "/opt/nodejs/src/*": ["src/layers/*"]
-      "/opt/nodejs/src/*": [
-        "src/layers/utils/*",
-        "src/layers/db/*",
-        "src/layers/shared/*"
+      "/opt/nodejs/*": [
+        "layers/db/nodejs/*",
+        "layers/utils/nodejs/*",
+        "layers/types/nodejs/*"
       ]
     }
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "layers/**/*"]
 }
